@@ -19,14 +19,14 @@
 					<span>wayfare</span>
 				</a>
 				<nav class="top-links" aria-label="Navegação principal">
-					<a class="active" href="#ride">Viagens</a>
-					<a href="#activity">Atividade</a>
-					<a href="#help">Ajuda</a>
+					<a class="active" href="#ride" data-page="ride">Viagens</a>
+					<a href="#activity" data-page="activity">Atividade</a>
+					<a href="#help" data-page="help">Ajuda</a>
 				</nav>
-				<button class="profile-button" aria-label="Abrir menu do perfil"><span>AM</span><span class="profile-chevron">⌄</span></button>
+				<button class="profile-button" id="profileButton" aria-label="Abrir a sua conta"><span>AM</span><span class="profile-chevron">⌄</span></button>
 			</header>
 
-			<section class="ride-layout" id="ride">
+			<section class="ride-layout" id="ride" data-page-panel="ride">
 				<aside class="booking-panel">
 					<div class="greeting-row">
 						<div>
@@ -55,27 +55,43 @@
 						<button class="destination-chip" data-destination="Ilha de Luanda"><span class="chip-icon museum-icon">▦</span><span><strong>Ilha de Luanda</strong><small>Ingombota</small></span></button>
 					</div>
 
+					<div class="booking-mode" role="group" aria-label="Quando pretende viajar?">
+						<button class="mode-button selected" type="button" data-schedule-mode="now" aria-pressed="true">Agora</button>
+						<button class="mode-button" type="button" data-schedule-mode="later" aria-pressed="false">Agendar viagem</button>
+					</div>
+					<div class="schedule-fields" id="scheduleFields" hidden>
+						<label for="scheduledAt">Data e hora da recolha</label>
+						<input id="scheduledAt" type="datetime-local" aria-describedby="scheduleHint" />
+						<small id="scheduleHint">Agende com pelo menos 30 minutos de antecedência.</small>
+					</div>
+
 					<div class="section-heading"><h2>Escolha a sua viagem</h2><span class="live-status"><i></i> PREÇOS EM TEMPO REAL</span></div>
 					<div class="ride-options" role="radiogroup" aria-label="Escolha o tipo de viagem">
-						<button class="ride-option selected" role="radio" aria-checked="true" data-ride="Económico" data-price="2 500 Kz">
+						<button class="ride-option selected" role="radio" aria-checked="true" data-ride="Económico" data-price="2500">
 							<span class="car-art car-standard" aria-hidden="true"><span></span></span>
 							<span class="ride-info"><strong>Económico</strong><small>4 lugares · a 3 min</small></span>
 							<span class="ride-price"><strong>2 500 Kz</strong><small>09:42</small></span>
 							<span class="radio-dot"></span>
 						</button>
-						<button class="ride-option" role="radio" aria-checked="false" data-ride="Conforto" data-price="3 700 Kz">
+						<button class="ride-option" role="radio" aria-checked="false" data-ride="Conforto" data-price="3700">
 							<span class="car-art car-comfort" aria-hidden="true"><span></span></span>
 							<span class="ride-info"><strong>Conforto</strong><small>Mais espaço · a 5 min</small></span>
 							<span class="ride-price"><strong>3 700 Kz</strong><small>09:44</small></span>
 							<span class="radio-dot"></span>
 						</button>
-						<button class="ride-option" role="radio" aria-checked="false" data-ride="Grupo" data-price="5 200 Kz">
+						<button class="ride-option" role="radio" aria-checked="false" data-ride="Grupo" data-price="5200">
 							<span class="car-art car-xl" aria-hidden="true"><span></span></span>
 							<span class="ride-info"><strong>Grupo</strong><small>6 lugares · a 6 min</small></span>
 							<span class="ride-price"><strong>5 200 Kz</strong><small>09:45</small></span>
 							<span class="radio-dot"></span>
 						</button>
 					</div>
+					<label class="share-option" for="shareRide">
+						<span class="share-symbol" aria-hidden="true">↗</span>
+						<span class="share-copy"><strong>Partilhar viagem</strong><small>Poupe até 25%, com possível desvio de até 10 min</small></span>
+						<input id="shareRide" type="checkbox" />
+						<span class="share-switch" aria-hidden="true"></span>
+					</label>
 
 					<div class="payment-row"><span class="payment-icon">▰</span><span><strong>Multicaixa •••• 4829</strong><small>Pessoal</small></span><button aria-label="Alterar método de pagamento">⌄</button></div>
 					<button class="request-button" id="requestRide"><span>Confirmar Económico</span><span>2 500 Kz <b>→</b></span></button>
@@ -106,6 +122,48 @@
 						<div class="arrival-summary"><span>CHEGADA PREVISTA</span><strong>10:00</strong></div>
 					</div>
 				</section>
+			</section>
+
+			<section class="app-page" id="activity" data-page-panel="activity" hidden>
+				<div class="page-content">
+					<div class="page-heading">
+						<div><p class="eyebrow">AS SUAS VIAGENS</p><h1>Atividade</h1><p class="page-intro">Consulte as viagens recentes e os respetivos detalhes.</p></div>
+						<button class="quiet-button" data-toast="O recibo será enviado para o seu email.">↓ <span>Exportar recibos</span></button>
+					</div>
+					<div class="activity-summary"><span><strong>12</strong><small>viagens este mês</small></span><span><strong>38 400 Kz</strong><small>total gasto</small></span><span><strong>4,9 <i>★</i></strong><small>avaliação média</small></span></div>
+					<h2 class="list-heading">Viagens recentes</h2>
+					<div class="trip-list">
+						<article class="trip-row"><div class="trip-date"><strong>29</strong><span>SET</span></div><div class="trip-route"><strong>Hotel Presidente</strong><span>Av. da Marginal, Luanda</span><small>Hoje, 09:12 · Económico</small></div><div class="trip-fare"><strong>2 500 Kz</strong><span class="trip-status complete">Concluída</span></div><button class="row-action" aria-label="Ver detalhes da viagem de hoje" data-toast="Detalhes da viagem de hoje">→</button></article>
+						<article class="trip-row"><div class="trip-date"><strong>27</strong><span>SET</span></div><div class="trip-route"><strong>Baía de Luanda</strong><span>Marginal de Luanda</span><small>Domingo, 18:40 · Conforto</small></div><div class="trip-fare"><strong>3 700 Kz</strong><span class="trip-status complete">Concluída</span></div><button class="row-action" aria-label="Ver detalhes da viagem de 27 de setembro" data-toast="Detalhes da viagem de 27 de setembro">→</button></article>
+						<article class="trip-row"><div class="trip-date"><strong>25</strong><span>SET</span></div><div class="trip-route"><strong>Aeroporto 4 de Fevereiro</strong><span>Maianga, Luanda</span><small>Sexta-feira, 07:25 · Económico</small></div><div class="trip-fare"><strong>5 200 Kz</strong><span class="trip-status complete">Concluída</span></div><button class="row-action" aria-label="Ver detalhes da viagem de 25 de setembro" data-toast="Detalhes da viagem de 25 de setembro">→</button></article>
+					</div>
+				</div>
+			</section>
+
+			<section class="app-page" id="help" data-page-panel="help" hidden>
+				<div class="page-content">
+					<div class="page-heading"><div><p class="eyebrow">ESTAMOS AQUI PARA AJUDAR</p><h1>Como podemos ajudar?</h1><p class="page-intro">Encontre respostas rápidas ou fale com a nossa equipa.</p></div></div>
+					<div class="help-layout">
+						<section class="help-section"><h2>Perguntas frequentes</h2>
+							<details open><summary>Como posso alterar ou cancelar uma viagem?</summary><p>Antes de o motorista iniciar a viagem, abra a viagem ativa e escolha “Cancelar”. O cancelamento pode ter uma taxa, que será apresentada antes de confirmar.</p></details>
+							<details><summary>Como funciona o pagamento?</summary><p>O valor é cobrado no método de pagamento selecionado no fim da viagem. Pode gerir os seus cartões na página da conta.</p></details>
+							<details><summary>Esqueci-me de um objeto no carro. O que faço?</summary><p>Abra a viagem em Atividade e contacte o apoio. A nossa equipa ajuda a entrar em contacto com o motorista.</p></details>
+							<details><summary>Como reporto um problema de segurança?</summary><p>Em caso de emergência, contacte primeiro os serviços locais. Depois, fale connosco para que possamos acompanhar a situação.</p></details>
+						</section>
+						<aside class="contact-panel"><span class="contact-icon">✳</span><h2>Fale connosco</h2><p>A equipa Wayfare está disponível todos os dias, das 06:00 às 23:00.</p><button class="request-button" data-toast="A equipa de apoio vai falar consigo em breve.">Contactar apoio <span>→</span></button><a href="mailto:apoio@wayfare.ao">apoio@wayfare.ao</a></aside>
+					</div>
+				</div>
+			</section>
+
+			<section class="app-page" id="account" data-page-panel="account" hidden>
+				<div class="page-content">
+					<div class="page-heading"><div><p class="eyebrow">DEFINIÇÕES PESSOAIS</p><h1>A sua conta</h1><p class="page-intro">Gira os seus dados e métodos de pagamento.</p></div><button class="quiet-button" data-toast="As definições foram guardadas.">Guardar alterações</button></div>
+					<div class="account-layout">
+						<section class="account-section"><h2>Informação pessoal</h2><div class="account-profile"><span class="account-avatar">AM</span><span><strong>Amélia Manuel</strong><small>Membro desde março de 2025</small></span></div><div class="account-fields"><label>Nome completo<input value="Amélia Manuel" /></label><label>Endereço de email<input type="email" value="amelia.manuel@email.com" /></label><label>Número de telefone<input type="tel" value="+244 923 000 482" /></label></div></section>
+						<section class="account-section"><h2>Métodos de pagamento</h2><div class="saved-payment"><span class="payment-icon">▰</span><span><strong>Multicaixa</strong><small>•••• 4829 · Pessoal</small></span><span class="default-tag">PREDEFINIDO</span><button class="row-action" aria-label="Opções do cartão" data-toast="Opções do cartão Multicaixa">···</button></div><button class="add-payment" data-toast="Adicionar um método de pagamento">＋ <span>Adicionar método de pagamento</span></button></section>
+						<section class="account-section preferences-section"><h2>Preferências</h2><label class="preference-row"><span><strong>Notificações de viagem</strong><small>Atualizações sobre recolha e chegada</small></span><input type="checkbox" checked /></label><label class="preference-row"><span><strong>Recibos por email</strong><small>Enviar recibo após cada viagem</small></span><input type="checkbox" checked /></label></section>
+					</div>
+				</div>
 			</section>
 			<div class="toast" id="toast" role="status" aria-live="polite"></div>
 		</main>
