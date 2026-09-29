@@ -1,0 +1,144 @@
+:root {
+	font-family: 'DM Sans', sans-serif;
+	color: #22251f;
+	background: #f7f7f2;
+	font-synthesis: none;
+	--ink: #22251f;
+	--muted: #83867e;
+	--line: #e8e9e2;
+	--lime: #d8f36a;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: #f7f7f2; }
+button, input { font: inherit; }
+button { color: inherit; }
+.app-shell { max-width: 1440px; margin: 0 auto; min-height: 100vh; padding: 0 15px 20px; }
+.topbar { height: 68px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e9eae4; }
+.brand { color: var(--ink); display: flex; align-items: center; gap: 10px; font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 700; text-decoration: none; }
+.brand-mark { width: 24px; height: 24px; position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 3px; border-radius: 8px; background: var(--lime); transform: rotate(-8deg); }
+.brand-mark span { width: 4px; height: 14px; border: 2px solid var(--ink); border-radius: 4px; transform: skew(-15deg); }
+.top-links { display: flex; align-items: center; height: 100%; gap: 13px; }
+.top-links a { height: 100%; display: flex; align-items: center; color: #777a72; text-decoration: none; font-size: 11px; position: relative; }
+.top-links a.active { color: var(--ink); font-weight: 700; }
+.top-links a.active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; border-radius: 3px 3px 0 0; background: var(--ink); }
+.profile-button { display: flex; gap: 9px; align-items: center; padding: 5px 7px 5px 5px; border: 1px solid var(--line); background: #fff; border-radius: 24px; font-size: 12px; cursor: pointer; }
+.profile-button > span:first-child { height: 27px; width: 27px; display: grid; place-items: center; border-radius: 50%; background: #e8ede1; color: #59634b; font-weight: 700; }
+.profile-chevron { color: #7d8078; padding-right: 3px; font-size: 15px; }
+.ride-layout { display: flex; flex-direction: column; gap: 24px; padding-top: 24px; }
+.booking-panel { padding: 0; max-width: none; width: 100%; }
+.greeting-row { display: flex; justify-content: space-between; align-items: flex-start; }
+.eyebrow { margin: 0 0 7px; color: #969990; font-size: 10px; letter-spacing: 1.15px; font-weight: 700; }
+h1 { margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 31px; line-height: 1.05; font-weight: 600; }
+.greeting-row h1 br { display: none; }
+.weather { margin-top: 11px; display: flex; align-items: center; gap: 5px; color: #777a72; font-size: 12px; font-weight: 600; }
+.weather span { color: #e5a82f; font-size: 20px; }
+.route-fields { position: relative; margin-top: 19px; padding-left: 28px; }
+.route-rail { position: absolute; top: 20px; bottom: 19px; left: 5px; display: flex; align-items: center; flex-direction: column; }
+.rail-dot { width: 9px; height: 9px; border: 2px solid #555b4a; background: #f7f7f2; border-radius: 50%; }
+.rail-line { flex: 1; border-left: 1px dashed #b8bbb1; margin: 3px 0; }
+.rail-square { height: 8px; width: 8px; background: #22251f; border-radius: 1px; }
+.location-field { height: 61px; padding: 9px 13px 8px; background: #fff; border: 1px solid var(--line); position: relative; display: flex; flex-direction: column; justify-content: center; }
+.pickup-field { border-radius: 7px 7px 0 0; }
+.destination-field { border-top: 0; border-radius: 0 0 7px 7px; }
+.field-label { font-size: 9px; letter-spacing: .9px; color: #999c93; font-weight: 700; margin-bottom: 3px; }
+.location-field input { width: calc(100% - 26px); border: 0; padding: 0; outline: 0; color: #33362f; font-size: 13px; font-weight: 600; background: transparent; }
+.gps-icon, .destination-search { position: absolute; right: 13px; top: 20px; color: #85897f; font-size: 19px; }
+.destination-search { font-size: 25px; top: 17px; }
+.destination-chips { display: flex; gap: 6px; margin: 12px 0 19px; }
+.destination-chip { border: 1px solid #e6e7e0; background: transparent; border-radius: 6px; display: flex; align-items: center; gap: 6px; padding: 6px; text-align: left; cursor: pointer; min-width: 0; flex: 1; }
+.destination-chip:hover { border-color: #a9ae9d; background: #fff; }
+.chip-icon { width: 22px; height: 22px; flex: 0 0 22px; border-radius: 5px; display: grid; place-items: center; font-size: 15px; }
+.garden-icon { color: #477955; background: #e2efdf; }
+.museum-icon { color: #946838; background: #f1e9dc; }
+.destination-chip strong, .destination-chip small { display: block; white-space: nowrap; }
+.destination-chip strong { font-size: 8px; font-weight: 700; }
+.destination-chip small { color: #969990; font-size: 8px; margin-top: 2px; }
+.section-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 9px; }
+.section-heading h2 { margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; }
+.live-status { display: flex; align-items: center; gap: 5px; font-size: 9px; font-weight: 700; color: #777a72; letter-spacing: .55px; }
+.live-status i { width: 6px; height: 6px; border-radius: 50%; background: #62ad68; box-shadow: 0 0 0 3px #e4f1df; }
+.ride-options { border-top: 1px solid var(--line); }
+.ride-option { width: 100%; height: 68px; position: relative; display: flex; align-items: center; gap: 8px; border: 0; border-bottom: 1px solid var(--line); background: transparent; padding: 0 25px 0 8px; text-align: left; cursor: pointer; }
+.ride-option.selected { background: #fff; box-shadow: inset 3px 0 #a9c747; }
+.car-art { width: 43px; height: 29px; flex: 0 0 43px; position: relative; display: block; transform: scale(.9); transform-origin: left center; }
+.car-art::before { content: ''; position: absolute; top: 7px; left: 7px; width: 34px; height: 14px; border-radius: 10px 12px 5px 5px; background: #a5ab9e; }
+.car-art::after { content: ''; position: absolute; left: 13px; top: 4px; width: 23px; height: 9px; border-radius: 8px 8px 1px 1px; background: #cbd0c4; clip-path: polygon(15% 0, 82% 0, 100% 100%, 0 100%); }
+.car-art span::before, .car-art span::after { content: ''; position: absolute; z-index: 1; top: 18px; width: 7px; height: 7px; border-radius: 50%; background: #55594f; border: 1px solid #f7f7f2; }
+.car-art span::before { left: 12px; }.car-art span::after { right: 9px; }
+.car-comfort::before { background: #818c9b; }.car-comfort::after { background: #b7c2ce; }
+.car-xl::before { left: 4px; width: 39px; height: 17px; top: 5px; border-radius: 7px 8px 4px 4px; background: #bc9a63; }.car-xl::after { left: 12px; width: 24px; top: 2px; background: #d7bd8e; }
+.ride-info { display: flex; flex: 1; min-width: 0; flex-direction: column; gap: 4px; }
+.ride-info strong, .ride-price strong { font-size: 11px; font-weight: 700; }
+.ride-info small, .ride-price small { color: #8e9189; font-size: 9px; }
+.ride-price { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; margin-left: auto; }
+.radio-dot { position: absolute; right: 5px; top: calc(50% - 6px); width: 12px; height: 12px; border: 1px solid #c9cbc3; border-radius: 50%; }
+.selected .radio-dot { border: 4px solid #657b35; }
+.payment-row { margin-top: 17px; display: flex; align-items: center; gap: 10px; }
+.payment-icon { width: 29px; height: 23px; border-radius: 4px; background: #fff; border: 1px solid var(--line); color: #58616d; display: grid; place-items: center; font-size: 14px; }
+.payment-row > span:nth-child(2) { display: flex; flex-direction: column; gap: 2px; }
+.payment-row strong { font-size: 10px; }.payment-row small { color: #93968e; font-size: 9px; }
+.payment-row button { margin-left: auto; border: 0; background: transparent; color: #767970; cursor: pointer; }
+.request-button { width: 100%; height: 48px; margin-top: 13px; padding: 0 16px; border: 0; border-radius: 6px; background: var(--ink); color: #fff; display: flex; align-items: center; justify-content: space-between; font-size: 12px; font-weight: 700; cursor: pointer; transition: background .18s, transform .18s; }
+.request-button:hover { background: #3b4034; transform: translateY(-1px); }
+.request-button span:last-child { display: flex; align-items: center; gap: 13px; }.request-button b { font-size: 17px; font-weight: 400; color: var(--lime); }
+.fine-print { margin: 9px 0 0; text-align: center; font-size: 9px; color: #969990; }.fine-print a { color: #666a60; text-decoration: underline; text-underline-offset: 2px; }
+.map-panel { order: -1; min-height: 340px; height: 42vh; max-height: 450px; margin: 0; display: flex; flex-direction: column; overflow: hidden; border: 1px solid #e5e6dd; border-radius: 9px; background: #eeefe9; }
+.map-scene { position: relative; flex: 1; min-height: 250px; overflow: hidden; background: #e9eae1; }
+.map-grid { position: absolute; inset: -20%; background-image: linear-gradient(33deg, transparent 48%, #d9dbd1 48.15%, #d9dbd1 48.8%, transparent 49%), linear-gradient(119deg, transparent 47%, #d9dbd1 47.2%, #d9dbd1 47.8%, transparent 48%), linear-gradient(0deg, transparent 48%, #dfe0d7 48.2%, #dfe0d7 48.8%, transparent 49%); background-size: 190px 140px, 220px 180px, 126px 112px; transform: rotate(-8deg) scale(1.2); }
+.park { z-index: 1; position: absolute; border-radius: 9px; background: #cddfc2; color: #71866a; font-size: 10px; line-height: 1.3; display: flex; align-items: center; justify-content: center; gap: 9px; text-align: center; }
+.park i { font-style: normal; font-size: 22px; opacity: .7; }.park-one { width: 21%; height: 14%; left: 50%; top: 28%; transform: rotate(7deg); }.park-two { width: 17%; height: 12%; left: 66%; top: 62%; transform: rotate(-9deg); }
+.waterfront { position: absolute; z-index: 0; top: -12%; right: -4%; width: 23%; height: 125%; background: #cbdcdb; transform: rotate(9deg); border-left: 5px solid #d9e4df; }
+.neighborhood { z-index: 2; position: absolute; color: #989c8d; font-size: 9px; font-weight: 700; letter-spacing: 1.4px; transform: rotate(-8deg); }.neighborhood-one { left: 18%; top: 54%; }.neighborhood-two { left: 58%; top: 17%; }.neighborhood-three { left: 21%; bottom: 15%; font-size: 8px; }
+.road { z-index: 2; position: absolute; height: 5px; background: #faf9f3; border: 1px solid #e1e2d9; border-left: 0; border-right: 0; transform: rotate(-8deg); }.road-one { width: 115%; left: -5%; top: 21%; }.road-two { width: 120%; left: -11%; top: 42%; transform: rotate(11deg); }.road-three { width: 120%; left: -5%; top: 72%; }.road-four { width: 110%; left: -2%; top: 87%; transform: rotate(4deg); }.road-five { width: 90%; left: 7%; top: 56%; transform: rotate(82deg); }.road-six { width: 95%; left: 24%; top: 36%; transform: rotate(96deg); }
+.route-line { z-index: 3; position: absolute; left: 28%; top: 41%; width: 35%; height: 22%; border-top: 4px solid #73894a; border-right: 4px solid #73894a; border-radius: 0 22px 0 0; transform: skewY(-23deg) rotate(2deg); filter: drop-shadow(0 1px 1px #fff); }.route-dash { position: absolute; right: -4px; bottom: -11px; height: 14px; border-right: 4px dotted #73894a; transform: rotate(-13deg); }
+.map-pin { z-index: 5; position: absolute; width: 23px; height: 23px; display: grid; place-items: center; background: #fff; border-radius: 50% 50% 50% 4px; transform: rotate(-45deg); box-shadow: 0 2px 8px #54594b35; }.pin-core { width: 9px; height: 9px; background: #53643e; border-radius: 50%; transform: rotate(45deg); }.pickup-pin { left: 26%; top: 61%; }.dropoff-pin { left: 62%; top: 37%; background: var(--lime); }.dropoff-pin .pin-core { background: #33382c; }
+.map-label { z-index: 4; position: absolute; background: #fff; padding: 7px 9px; border-radius: 5px; box-shadow: 0 2px 10px #4a4b3c12; display: flex; flex-direction: column; gap: 3px; }.map-label span { color: #92968c; letter-spacing: .7px; font-size: 7px; font-weight: 700; }.map-label strong { font-size: 10px; }.pickup-label { left: calc(26% + 13px); top: 60%; }.dropoff-label { left: calc(62% + 13px); top: 36%; }
+.map-controls { z-index: 6; position: absolute; top: 16px; right: 16px; display: flex; flex-direction: column; border-radius: 5px; overflow: hidden; box-shadow: 0 1px 7px #353b3320; }.map-controls button { width: 34px; height: 34px; border: 0; border-bottom: 1px solid #e9e9e2; background: #fff; font-size: 19px; cursor: pointer; }.map-controls button:last-child { border-bottom: 0; color: #69745c; font-size: 20px; }
+.map-attribution { z-index: 4; position: absolute; bottom: 6px; right: 8px; font-size: 8px; color: #777d70; background: #ffffffaa; padding: 3px 4px; }
+.map-bottom { height: 70px; flex: 0 0 70px; padding: 0 14px; display: flex; justify-content: space-between; align-items: center; background: #fff; }.trip-summary { display: flex; align-items: center; gap: 8px; }.summary-icon { height: 33px; width: 33px; display: grid; place-items: center; border-radius: 50%; background: #f0f2e9; font-size: 16px; }.trip-summary strong, .trip-summary small { display: block; }.trip-summary strong { font-size: 11px; }.trip-summary small { color: #8d9188; font-size: 9px; margin-top: 4px; }.arrival-summary { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }.arrival-summary span { color: #999c93; font-weight: 700; font-size: 8px; letter-spacing: .8px; }.arrival-summary strong { font-family: 'Space Grotesk', sans-serif; font-size: 18px; }.arrival-summary small { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 500; }
+.toast { position: fixed; z-index: 10; left: 50%; bottom: 24px; padding: 12px 18px; border-radius: 6px; color: #fff; background: #252820; box-shadow: 0 8px 28px #21251f38; font-size: 12px; opacity: 0; pointer-events: none; transform: translate(-50%, 12px); transition: opacity .2s, transform .2s; }.toast.visible { opacity: 1; transform: translate(-50%, 0); }
+
+@media (min-width: 761px) {
+	.app-shell { padding: 0 28px 28px; }
+	.topbar { height: 68px; }
+	.brand { font-size: 22px; }
+	.brand-mark { width: 27px; height: 27px; }
+	.top-links { gap: 20px; margin-left: 0; }
+	.top-links a { font-size: 12px; }
+	.profile-button > span:first-child { height: 30px; width: 30px; }
+	.ride-layout { display: grid; grid-template-columns: minmax(330px, 390px) minmax(330px, 1fr); gap: 25px; min-height: calc(100vh - 118px); padding-top: 30px; }
+	.booking-panel { max-width: 390px; padding: 5px 0 0 4px; }
+	.greeting-row h1 br { display: initial; }
+	h1 { font-size: 35px; }
+	.eyebrow { margin-bottom: 10px; }
+	.route-fields { margin-top: 26px; }
+	.destination-chips { gap: 9px; margin-bottom: 24px; }
+	.destination-chip { flex: initial; gap: 8px; padding: 7px 8px; }
+	.destination-chip strong { font-size: 9px; }
+	.destination-chip small { font-size: 9px; }
+	.chip-icon { width: 25px; height: 25px; flex-basis: 25px; }
+	.ride-option { gap: 13px; }
+	.car-art { width: 49px; flex-basis: 49px; transform: none; }
+	.ride-info strong, .ride-price strong { font-size: 12px; }
+	.ride-info small, .ride-price small { font-size: 10px; }
+	.map-panel { order: initial; min-height: 640px; height: calc(100vh - 139px); max-height: 850px; margin-top: 4px; }
+	.map-scene { min-height: 470px; }
+	.map-bottom { height: 83px; flex-basis: 83px; padding: 0 23px; }
+	.trip-summary { gap: 12px; }
+	.trip-summary strong { font-size: 12px; }
+	.trip-summary small { font-size: 10px; }
+	.arrival-summary strong { font-size: 21px; }
+}
+
+@media (min-width: 981px) {
+	.app-shell { padding: 0 52px 36px; }
+	.topbar { height: 82px; }
+	.top-links { gap: 35px; margin-left: 50px; }
+	.top-links a { font-size: 13px; }
+	.ride-layout { grid-template-columns: 410px minmax(0, 1fr); gap: 70px; padding-top: 35px; }
+	.booking-panel { max-width: 430px; padding-left: 7px; }
+	.destination-chip { padding: 7px 10px; }
+	.destination-chip strong { font-size: 10px; }
+	.map-panel { min-height: 680px; }
+}

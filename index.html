@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-AO">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="#f7f7f2" />
+		<title>Wayfare | A sua próxima viagem</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<main class="app-shell">
+			<header class="topbar">
+				<a class="brand" href="#" aria-label="Início da Wayfare">
+					<span class="brand-mark" aria-hidden="true"><span></span><span></span></span>
+					<span>wayfare</span>
+				</a>
+				<nav class="top-links" aria-label="Navegação principal">
+					<a class="active" href="#ride">Viagens</a>
+					<a href="#activity">Atividade</a>
+					<a href="#help">Ajuda</a>
+				</nav>
+				<button class="profile-button" aria-label="Abrir menu do perfil"><span>AM</span><span class="profile-chevron">⌄</span></button>
+			</header>
+
+			<section class="ride-layout" id="ride">
+				<aside class="booking-panel">
+					<div class="greeting-row">
+						<div>
+							<p class="eyebrow">LUANDA · TERÇA-FEIRA, 29 DE SETEMBRO</p>
+							<h1>Para onde vamos,<br />Amélia?</h1>
+						</div>
+						<span class="weather" aria-label="Ensolarado, 22 graus"><span>☀</span> 22°</span>
+					</div>
+
+					<div class="route-fields" aria-label="Locais da viagem">
+						<div class="route-rail" aria-hidden="true"><span class="rail-dot"></span><span class="rail-line"></span><span class="rail-square"></span></div>
+						<label class="location-field pickup-field">
+							<span class="field-label">RECOLHA</span>
+							<input id="pickup" value="A minha localização atual" aria-label="Local de recolha" />
+							<span class="gps-icon" aria-hidden="true">◎</span>
+						</label>
+						<label class="location-field destination-field">
+							<span class="field-label">DESTINO</span>
+							<input id="destination" value="Hotel Presidente, Luanda" aria-label="Destino" />
+							<span class="destination-search" aria-hidden="true">⌕</span>
+						</label>
+					</div>
+
+					<div class="destination-chips" aria-label="Destinos sugeridos">
+						<button class="destination-chip" data-destination="Baía de Luanda"><span class="chip-icon garden-icon">✿</span><span><strong>Baía de Luanda</strong><small>Marginal de Luanda</small></span></button>
+						<button class="destination-chip" data-destination="Ilha de Luanda"><span class="chip-icon museum-icon">▦</span><span><strong>Ilha de Luanda</strong><small>Ingombota</small></span></button>
+					</div>
+
+					<div class="section-heading"><h2>Escolha a sua viagem</h2><span class="live-status"><i></i> PREÇOS EM TEMPO REAL</span></div>
+					<div class="ride-options" role="radiogroup" aria-label="Escolha o tipo de viagem">
+						<button class="ride-option selected" role="radio" aria-checked="true" data-ride="Económico" data-price="2 500 Kz">
+							<span class="car-art car-standard" aria-hidden="true"><span></span></span>
+							<span class="ride-info"><strong>Económico</strong><small>4 lugares · a 3 min</small></span>
+							<span class="ride-price"><strong>2 500 Kz</strong><small>09:42</small></span>
+							<span class="radio-dot"></span>
+						</button>
+						<button class="ride-option" role="radio" aria-checked="false" data-ride="Conforto" data-price="3 700 Kz">
+							<span class="car-art car-comfort" aria-hidden="true"><span></span></span>
+							<span class="ride-info"><strong>Conforto</strong><small>Mais espaço · a 5 min</small></span>
+							<span class="ride-price"><strong>3 700 Kz</strong><small>09:44</small></span>
+							<span class="radio-dot"></span>
+						</button>
+						<button class="ride-option" role="radio" aria-checked="false" data-ride="Grupo" data-price="5 200 Kz">
+							<span class="car-art car-xl" aria-hidden="true"><span></span></span>
+							<span class="ride-info"><strong>Grupo</strong><small>6 lugares · a 6 min</small></span>
+							<span class="ride-price"><strong>5 200 Kz</strong><small>09:45</small></span>
+							<span class="radio-dot"></span>
+						</button>
+					</div>
+
+					<div class="payment-row"><span class="payment-icon">▰</span><span><strong>Multicaixa •••• 4829</strong><small>Pessoal</small></span><button aria-label="Alterar método de pagamento">⌄</button></div>
+					<button class="request-button" id="requestRide"><span>Confirmar Económico</span><span>2 500 Kz <b>→</b></span></button>
+					<p class="fine-print">Ao confirmar, concorda com os nossos <a href="#terms">Termos</a> e <a href="#privacy">Política de Privacidade.</a></p>
+				</aside>
+
+				<section class="map-panel" aria-label="Mapa do percurso da viagem">
+					<div class="map-scene" role="img" aria-label="Mapa de Luanda com o percurso da sua localização até ao Hotel Presidente">
+						<div class="map-grid"></div>
+						<div class="park park-one"><span>Jardins da<br />Baía</span><i>✳</i></div>
+						<div class="park park-two"><span>Largo do<br />Kinaxixi</span><i>✿</i></div>
+						<div class="waterfront"></div>
+						<div class="neighborhood neighborhood-one">INGOMBOTA</div>
+						<div class="neighborhood neighborhood-two">MARGINAL</div>
+						<div class="neighborhood neighborhood-three">MAIANGA</div>
+						<div class="road road-one"></div><div class="road road-two"></div><div class="road road-three"></div>
+						<div class="road road-four"></div><div class="road road-five"></div><div class="road road-six"></div>
+						<div class="route-line"><span class="route-dash"></span></div>
+						<div class="map-pin pickup-pin"><span class="pin-core"></span></div>
+						<div class="map-pin dropoff-pin"><span class="pin-core"></span></div>
+						<div class="map-label pickup-label"><span>A SUA LOCALIZAÇÃO</span><strong>Local atual</strong></div>
+						<div class="map-label dropoff-label"><span>DESTINO</span><strong>Hotel Presidente</strong></div>
+						<div class="map-controls"><button aria-label="Aumentar zoom">+</button><button aria-label="Diminuir zoom">−</button><button aria-label="Centrar mapa">◎</button></div>
+						<div class="map-attribution">Dados do mapa © colaboradores do OpenStreetMap</div>
+					</div>
+					<div class="map-bottom">
+						<div class="trip-summary"><span class="summary-icon">↗</span><span><strong>Ingombota, Luanda</strong><small>6,8 km · cerca de 16 min</small></span></div>
+						<div class="arrival-summary"><span>CHEGADA PREVISTA</span><strong>10:00</strong></div>
+					</div>
+				</section>
+			</section>
+			<div class="toast" id="toast" role="status" aria-live="polite"></div>
+		</main>
+	</body>
+</html>
